@@ -14,7 +14,7 @@ public class Game {
     } else if (levelScore > 0 && levelScore == 9 && frameCount % 180 - frameAdjust == 0) {
       for (Object cell : cells) {
         PVector newSpeed = new PVector(0, 2);
-        cell.update(newSpeed);
+        cell.setSpeed(newSpeed);
       }
       frameAdjust = levelScore + 1; 
     }
@@ -22,7 +22,10 @@ public class Game {
     if (frameCount % 200 == 0) {
       generateObstacles();
     } else if (levelScore > 0 && levelScore == 9 && frameCount % 200 - frameAdjust == 0) {
-      generateObstacles();
+      for (Obstacle obstacle : obstacles) {
+        PVector newSpeed = new PVector(0,2);
+        obstacle.setSpeed(newSpeed);
+      }
     } 
    
     //draw and move cells
